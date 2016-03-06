@@ -1,9 +1,10 @@
 <?php
-auth_reauthenticate();
+auth_reauthenticate( );
 access_ensure_global_level( config_get( 'manage_plugin_threshold' ) );
-html_page_top1( lang_get( 'reminder_plugin_title' ) );
-html_page_top2();
-print_manage_menu();
+
+layout_page_header( lang_get( 'reminder_plugin_title' ) );
+
+layout_page_begin( 'manage_overview_page.php' );
 
 function reminder_check_selected( $p_var, $p_val = true ) {
 	if( is_array( $p_var ) ) {
@@ -351,4 +352,4 @@ function reminder_print_status_option_list( $p_name ) {
 </table>
 <form>
 <?php
-html_page_bottom1( __FILE__ );
+layout_page_end();
